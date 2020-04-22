@@ -9,8 +9,8 @@
  - Customize settings in config
  
  
- [![Demo1](https://i.imgur.com/w80TtSI.gif)]()
+ ![Demo1](https://i.imgur.com/w80TtSI.gif)
  
  
  
-  [![Demo2](https://imgur.com/a/OHgRkmb.gif)]()
+  ![Demo2](https://imgur.com/a/OHgRkmb.gif)
