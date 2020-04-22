@@ -9,8 +9,8 @@
  - Customize settings in config
  
  
- ![Demo1](https://i.imgur.com/w80TtSI.gif)
+ ![Winner](success.gif)
  
  
  
-  ![Demo2](https://imgur.com/a/OHgRkmb.gif)
+ ![Trying to sneak or stopping](fail.gif)
