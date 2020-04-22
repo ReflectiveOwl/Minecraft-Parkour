@@ -56,7 +56,7 @@
  
 The following permissions are considered
 - parkour.admin - *is necessary to use any plugin commands* 
-- parkour.nogift - *whoever has that permission **will NOT** be able to get the bonus for finishing
+- parkour.nogift - *whoever has that permission **will NOT** be able to get the bonus for finishing*
 - parkour.invulnerability - *with that permission your potion effects will not be removed once you enter areba*
 - parkour.signs - *allows you to create signs for parkour arenas*
 
