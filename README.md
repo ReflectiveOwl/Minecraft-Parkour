@@ -16,6 +16,8 @@
  - Customize settings in config
  - Super simple to install and use
  
+ **This project is under continous development. Any ideas and feedback is appreciated**
+ 
  ## Setting up
  
  
