@@ -363,7 +363,7 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 										}
 
 										sender.sendMessage(ChatColor.YELLOW + args[1] + ChatColor.DARK_GREEN
-												+ "reward now is " + args[2]);
+												+ " reward now is " + args[2]);
 									} else {
 										sender.sendMessage(message.getString("notfound"));
 									}
@@ -524,12 +524,12 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 									+ Math.round(arena.getDouble("arenas." + name + ".reward")) + "$");
 						}
 						if (randomSuperprize == 5) {
-							getServer().broadcastMessage(ChatColor.GOLD + e.getPlayer().getName()
-									+ " won a superprize with probability of 5/100!");
+						//	getServer().broadcastMessage(ChatColor.GOLD + e.getPlayer().getName()
+						//			+ " won a superprize with probability of 5/100!");
 
-							getLogger().info("[Parkour] " + e.getPlayer() + " won a superprize");
+							//getLogger().info("[Parkour] " + e.getPlayer() + " won a superprize");
 						} else {
-							e.getPlayer().sendMessage(ChatColor.RED + "You didn't win the superprize :(");
+						//	e.getPlayer().sendMessage(ChatColor.RED + "You didn't win the superprize :(");
 						}
 					} else {
 						e.getPlayer().sendMessage(message.getString("noperm"));
