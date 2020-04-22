@@ -4,3 +4,4 @@ bin/pl/Main.class
 bin/plugin.yml
 .settings/org.eclipse.jdt.core.prefs
 .classpath
+.project
