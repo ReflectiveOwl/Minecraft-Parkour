@@ -1,13 +1,22 @@
 # Minecraft parkour plugin for your server
  > Minecraft plugin to create fun parkour arenas
  
- **Features**
+ ## Download
+ 
+ Download jar [here](Parkour.jar) (native Minecraft 1.12.2)
+ 
+ To setup simply put this file to your *plugins* folder.  
+ You might also need [Vault](https://www.spigotmc.org/resources/vault.34315/) or an economy plugin if you have not one installed yet
+ 
+ ## Features
  
  - You have to run without stopping to complete the parkour!
  - Bonus for completing
  - Create multiple arenas
  - Customize settings in config
  - Super simple to install and use
+ 
+ **This project is under continous development. Any ideas and feedback is appreciated**
  
  ## Setting up
  
