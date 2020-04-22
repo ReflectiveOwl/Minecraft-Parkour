@@ -52,26 +52,42 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 		File confFile = new File(this.getDataFolder(), "message.yml");
 		message = YamlConfiguration.loadConfiguration(confFile);
 		if (!confFile.exists()) {
-			message.set("info",
-					ChatColor.GREEN + "[Parkour] available commands:" + "\n"
-							+ "/parkour createarena [arenaname] - creates new parkour zone" + "\n"
-							+ "/parkour delarena [arenaname] - " + "\n"
-							+ "/parkour setspawn [arenaname] - sets spawn for chosen arena " + "\n"
-							+ "/parkour setpos1 - cho" + "\n" + "/parkour setpos2 -" + "\n" + "/parkour setend - "
-							+ "\n" + "/parkour reload - " + "\n" + "/parkour setreward [arena] [reward] -");
-			message.set("firstpos", "sets first pos");
-			message.set("secondpos", "sets second pos");
-			message.set("nameofarena", "sets ");
-			message.set("errcreate", "First select region with /parkour setpos1  /parkour setpos2");
-			message.set("start", "todo");
-			message.set("notcreated", "Arena not created");
-			message.set("alreadycreated", "This arena name already exists");
-			message.set("notfound", "Parkour arena name not found");
-			message.set("noperm", "You don't have permission to do that");
-			message.set("stop", "Stopping");
-			message.set("potion", "Potion cleared");
-			message.set("endsel", "Selection ended");
-			message.set("reload", "Plugin reloaded");
+			message.set("info", ChatColor.GOLD + "[Parkour] available commands:" + "\n"
+
+					+ ChatColor.YELLOW + "/parkour createarena [arenaname]" + ChatColor.DARK_GREEN + " - create arena"
+					+ "\n"
+
+					+ ChatColor.YELLOW + "/parkour delarena [arenaname]" + ChatColor.DARK_GREEN + " - delete arena"
+					+ "\n"
+
+					+ ChatColor.YELLOW + "/parkour setspawn [arenaname]" + ChatColor.DARK_GREEN
+					+ " - set arena starting point" + "\n"
+
+					+ ChatColor.YELLOW + "/parkour setpos1" + ChatColor.DARK_GREEN
+					+ " - select first corner to create arena" + "\n"
+
+					+ ChatColor.YELLOW + "/parkour setpos2" + ChatColor.DARK_GREEN
+					+ " - select second corner to create arena" + "\n"
+
+					+ ChatColor.YELLOW + "/parkour setend" + ChatColor.DARK_GREEN + " - set parkour finish point" + "\n"
+
+					+ ChatColor.YELLOW + "/parkour reload" + ChatColor.DARK_GREEN + " - reload plugin" + "\n"
+
+					+ ChatColor.YELLOW + "/parkour setreward [arena] [reward]" + ChatColor.DARK_GREEN
+					+ " - set prize for completing parkour");
+
+			message.set("firstpos", ChatColor.GRAY + "First point selected ");
+			message.set("secondpos", ChatColor.GRAY + "Second point selected ");
+			message.set("nameofarena", ChatColor.RED + "Introduce the name of the arena ");
+			message.set("errcreate", ChatColor.RED + "Select region using /parkour setpos1  /parkour setpos2 ");
+			message.set("setspawn", ChatColor.GREEN + "Parkour spawnpoint setup complete");
+			message.set("alreadycreated", ChatColor.RED + "This arena name already exists ");
+			message.set("notfound", ChatColor.RED + "Arena with that name does not exist ");
+			message.set("noperm", ChatColor.RED + "You don not have permission to do that ");
+			message.set("stop", ChatColor.RED + "You can not stop! Run fast to complete the parkour! ");
+			message.set("potion", ChatColor.GRAY + "Potions effects removed ");
+			message.set("setend", ChatColor.GREEN + "Parkour endpoint setup complete ");
+			message.set("reload", ChatColor.GRAY + "Plugin reloaded ");
 
 			try {
 				message.save(confFile);
@@ -104,7 +120,7 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 		try {
 			arena.load(conf);
 		} catch (IOException | InvalidConfigurationException e1) {
-			
+
 		}
 
 		if (conf.exists())
@@ -159,9 +175,63 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 								|| args[0].equalsIgnoreCase("reload") || args[0].equalsIgnoreCase("setreward")) {
 
 							if (args[0].equalsIgnoreCase("reload")) {
+								File confFile = new File(this.getDataFolder(), "message.yml");
+								message = YamlConfiguration.loadConfiguration(confFile);
+								if (!confFile.exists()) {
+									message.set("info", ChatColor.GOLD + "[Parkour] available commands:" + "\n"
 
-								for (String a : arena.getConfigurationSection("arenas").getValues(false).keySet())
-									arenas.remove(a);
+											+ ChatColor.YELLOW + "/parkour createarena [arenaname]"
+											+ ChatColor.DARK_GREEN + " - create arena" + "\n"
+
+											+ ChatColor.YELLOW + "/parkour delarena [arenaname]" + ChatColor.DARK_GREEN
+											+ " - delete arena" + "\n"
+
+											+ ChatColor.YELLOW + "/parkour setspawn [arenaname]" + ChatColor.DARK_GREEN
+											+ " - set arena starting point" + "\n"
+
+											+ ChatColor.YELLOW + "/parkour setpos1" + ChatColor.DARK_GREEN
+											+ " - select first corner to create arena" + "\n"
+
+											+ ChatColor.YELLOW + "/parkour setpos2" + ChatColor.DARK_GREEN
+											+ " - select second corner to create arena" + "\n"
+
+											+ ChatColor.YELLOW + "/parkour setend" + ChatColor.DARK_GREEN
+											+ " - set parkour finish point" + "\n"
+
+											+ ChatColor.YELLOW + "/parkour reload" + ChatColor.DARK_GREEN
+											+ " - reload plugin" + "\n"
+
+											+ ChatColor.YELLOW + "/parkour setreward [arena] [reward]"
+											+ ChatColor.DARK_GREEN + " - set prize for completing parkour");
+
+									message.set("firstpos", ChatColor.GRAY + "First point selected ");
+									message.set("secondpos", ChatColor.GRAY + "Second point selected ");
+									message.set("nameofarena", ChatColor.RED + "Introduce the name of the arena ");
+									message.set("errcreate",
+											ChatColor.RED + "Select region using /parkour setpos1  /parkour setpos2 ");
+									message.set("setspawn", ChatColor.GREEN + "Parkour spawnpoint setup complete");
+									message.set("alreadycreated", ChatColor.RED + "This arena name already exists ");
+									message.set("notfound", ChatColor.RED + "Arena with that name does not exist ");
+									message.set("noperm", ChatColor.RED + "You don not have permission to do that ");
+									message.set("stop",
+											ChatColor.RED + "You can not stop! Run fast to complete the parkour! ");
+									message.set("potion", ChatColor.GRAY + "Potions effects removed ");
+									message.set("setend", ChatColor.GREEN + "Parkour endpoint setup complete ");
+									message.set("reload", ChatColor.GRAY + "Plugin reloaded ");
+									try {
+										message.save(confFile);
+									} catch (IOException e) {
+									}
+								} else {
+									try {
+										message.load(confFile);
+									} catch (IOException | InvalidConfigurationException e) {
+									}
+								}
+
+								if (arena.isConfigurationSection("arenas"))
+									for (String a : arena.getConfigurationSection("arenas").getValues(false).keySet())
+										arenas.remove(a);
 
 								conf = new File(this.getDataFolder(), "arena.yml");
 								arena = YamlConfiguration.loadConfiguration(conf);
@@ -169,18 +239,19 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 									try {
 										arena.load(conf);
 									} catch (IOException | InvalidConfigurationException e1) {
+										getLogger().info("Error occured " + e1);
 									}
 
 								if (arena.isConfigurationSection("arenas"))
 									for (String a : arena.getConfigurationSection("arenas").getValues(false).keySet()) {
 										arenas.add(a);
-										getLogger().info("Parkour arena " + a + " activated successfully");
+										getLogger().info("Parkour arena " + a + " found");
 									}
 								if (arena.isConfigurationSection("arenas"))
 									if (arena.getConfigurationSection("arenas").getValues(false).keySet().isEmpty())
 										getLogger().info("No parkour arenas found");
-
 								sender.sendMessage(message.getString("reload"));
+								getLogger().info("[Parkour] reload complete");
 							}
 
 							if (args[0].equalsIgnoreCase("setpos1")) {
@@ -197,7 +268,6 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 								y2 = ((Player) sender).getLocation().getY();
 								z2 = ((Player) sender).getLocation().getZ();
 								b2 = true;
-
 							}
 
 							if (args[0].equalsIgnoreCase("createarena")) {
@@ -227,7 +297,8 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 											} catch (IOException | InvalidConfigurationException e) {
 											}
 											arenas.add(args[1]);
-											sender.sendMessage("Arena " + args[1] + " created successfully");
+											sender.sendMessage(ChatColor.YELLOW + args[1] + ChatColor.DARK_GREEN
+													+ " created successfully");
 										} else {
 											sender.sendMessage(message.getString("alreadycreated"));
 										}
@@ -251,10 +322,10 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 									}
 
 									if (arena.contains("arenas." + args[1])) {
-
-										double xf = ((Player) sender).getLocation().getX();
-										double yf = ((Player) sender).getLocation().getY();
-										double zf = ((Player) sender).getLocation().getZ();
+										Location sign = ((Player) sender).getTargetBlock(null, 5).getLocation();
+										double xf = sign.getX();
+										double yf = sign.getY();
+										double zf = sign.getZ();
 										arena.set("arenas." + args[1] + ".end.x", xf);
 										arena.set("arenas." + args[1] + ".end.y", yf);
 										arena.set("arenas." + args[1] + ".end.z", zf);
@@ -263,10 +334,10 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 											arena.load(conf);
 										} catch (IOException | InvalidConfigurationException e) {
 										}
-										sender.sendMessage(message.getString("endsel"));
+										sender.sendMessage(message.getString("setend"));
 
 									} else {
-										sender.sendMessage(message.getString("notcreated"));
+										sender.sendMessage(message.getString("notfound"));
 									}
 								}
 							}
@@ -283,17 +354,18 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 										arena.load(conf);
 									} catch (IOException | InvalidConfigurationException e1) {
 									}
-									if (arena.contains("arenas." + args[2])) {
-										arena.set("arenas." + args[2] + ".reward", Integer.parseInt(args[1]));
+									if (arena.contains("arenas." + args[1])) {
+										arena.set("arenas." + args[1] + ".reward", Integer.parseInt(args[2]));
 										try {
 											arena.save(conf);
 											arena.load(conf);
-										} catch (IOException | InvalidConfigurationException e) {}
+										} catch (IOException | InvalidConfigurationException e) {
+										}
 
-										sender.sendMessage("Reward to arena " + args[1]
-												+ " is set to " + args[2]);
+										sender.sendMessage(ChatColor.YELLOW + args[1] + ChatColor.DARK_GREEN
+												+ "reward now is " + args[2]);
 									} else {
-										sender.sendMessage(message.getString("notcreated"));
+										sender.sendMessage(message.getString("notfound"));
 									}
 
 								}
@@ -320,20 +392,19 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 										try {
 											arena.save(conf);
 											arena.load(conf);
-
 										} catch (IOException | InvalidConfigurationException e) {
 										}
 
-										sender.sendMessage(message.getString("start"));
+										sender.sendMessage(message.getString("setspawn"));
 									} else {
-										sender.sendMessage(message.getString("notcreated"));
+										sender.sendMessage(message.getString("notfound"));
 									}
 
 								}
 							}
 							if (args[0].equalsIgnoreCase("delarena")) {
 								if (args.length < 2) {
-									sender.sendMessage("Please introduce the name of the arena");
+									sender.sendMessage(message.getString("nameofarena"));
 								} else {
 									conf = new File(this.getDataFolder(), "arena.yml");
 
@@ -353,12 +424,14 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 
 										} catch (IOException | InvalidConfigurationException e) {
 										}
-										sender.sendMessage("Arena " + args[1] + " deleted successfully");
+										sender.sendMessage(ChatColor.YELLOW + args[1] + ChatColor.DARK_GREEN
+												+ " deleted successfully");
 
 									} else {
 										sender.sendMessage(message.getString("notfound"));
 									}
 								}
+
 							}
 						} else {
 
@@ -427,9 +500,9 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 					for (String name : arenas) {
 						if (s.getLine(1).contains(name)) {
 							Location loc = new Location(s.getWorld(),
-														arena.getDouble("arenas." + name + ".spawnpoint.x"),
-														arena.getDouble("arenas." + name + ".spawnpoint.y"),
-														arena.getDouble("arenas." + name + ".spawnpoint.z"));
+									arena.getDouble("arenas." + name + ".spawnpoint.x"),
+									arena.getDouble("arenas." + name + ".spawnpoint.y"),
+									arena.getDouble("arenas." + name + ".spawnpoint.z"));
 							e.getPlayer().teleport(loc);
 						}
 					}
@@ -446,19 +519,17 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 						EconomyResponse r = econ.depositPlayer(e.getPlayer(),
 								arena.getDouble("arenas." + name + ".reward"));
 						if (r.transactionSuccess()) {
-							getServer().broadcastMessage(
-									ChatColor.GOLD + e.getPlayer().getName() + " completed the parkour and won the prize of "
-											+ Math.round(arena.getDouble("arenas." + name + ".reward")) + "$");
-
+							getServer().broadcastMessage(ChatColor.GOLD + e.getPlayer().getName()
+									+ " completed the parkour and won the prize of "
+									+ Math.round(arena.getDouble("arenas." + name + ".reward")) + "$");
 						}
 						if (randomSuperprize == 5) {
-							getServer().broadcastMessage(
-									ChatColor.GOLD + e.getPlayer().getName() + " won a superprize with probability of 5/100!");
+							getServer().broadcastMessage(ChatColor.GOLD + e.getPlayer().getName()
+									+ " won a superprize with probability of 5/100!");
 
 							getLogger().info("[Parkour] " + e.getPlayer() + " won a superprize");
 						} else {
-							getServer().broadcastMessage(e.getPlayer().getName() + "was not lucky today, but won the parkour");
-
+							e.getPlayer().sendMessage(ChatColor.RED + "You didn't win the superprize :(");
 						}
 					} else {
 						e.getPlayer().sendMessage(message.getString("noperm"));
@@ -474,12 +545,13 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 			e.setLine(0, ChatColor.LIGHT_PURPLE + "[Parkour]");
 			if (!arenas.contains(e.getLine(1))) {
 				e.getBlock().breakNaturally();
-				e.getPlayer().sendMessage(message.getString("notcreated"));
+				e.getPlayer().sendMessage(message.getString("notfound"));
 			} else {
 				for (String name : arenas) {
 					if (e.getLine(1).equals(name)) {
 						e.setLine(1, ChatColor.DARK_AQUA + name);
-						e.getPlayer().sendMessage("Reward sign created successfully for parkour arena " + name);
+						e.getPlayer().sendMessage(ChatColor.DARK_GREEN + "Reward sign created successfully for "
+								+ ChatColor.YELLOW + name);
 
 					}
 				}
