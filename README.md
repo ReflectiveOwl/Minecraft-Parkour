@@ -1,7 +1,12 @@
 # Minecraft parkour plugin for your server
  > Minecraft plugin to create fun parkour arenas
  
- **Features**
+ ## Download
+ 
+ Download jar [here](Parkour.jar)
+ 
+ 
+ ## Features
  
  - You have to run without stopping to complete the parkour!
  - Bonus for completing
