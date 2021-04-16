@@ -6,7 +6,7 @@
  Download jar [here](Parkour.jar) (native Minecraft 1.12.2)
  
  To setup simply put this file to your *plugins* folder.  
- You might also need [Vault](https://www.spigotmc.org/resources/vault.34315/) or an economy plugin if you have not one installed yet
+ You might also need [Vault](https://www.spigotmc.org/resources/vault.34315/) or an economy plugin if you do not have one installed yet
  
  ## Features
  
